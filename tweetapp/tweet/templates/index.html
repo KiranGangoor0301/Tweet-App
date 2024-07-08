@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>index page</title>
-    <style>
-        body
-        {
-            background-color: black;
-            color: white;
-            margin: auto;
-        }
-        
-    </style>
-</head>
-<body>
-    <h1>This is an Home page..!!</h1>
-</body>
-</html>
+{% extends 'layout.html' %}
+
+{% block title %}
+    <title>tweet-app</title>
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mt-4 text-center">This is my first tweet-app</h1>
+    
+{% endblock %}
