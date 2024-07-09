@@ -1,14 +1,12 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    <title>Tweet List</title>
+    <title>Search Results</title>
 {% endblock %}
 
 {% block content %}
-<h1 class="mt-4 text-center">Welcome to Tweet-app!</h1>
-<a class="btn btn-primary mb-4" href="{% url 'tweet_create' %}">Create a new tweet</a>
-<div class="container row gap-3">
-    {% for tweet in tweets %}
+<h1 class="mt-4 text-center">Search Results:</h1>
+    {% for tweet in allposts %}
     <div class="card" style="width: 18rem;">
         {% if tweet.photo %}
         <img src="{{ tweet.photo.url }}" class="card-img-top" alt="Tweet photo">
@@ -16,7 +14,7 @@
         <div class="card-body">
             <h5 class="card-title">{{ tweet.user.username }}</h5>
             <p class="card-text">{{ tweet.text }}</p>
-            {% if tweet.user == user %}
+            {% if tweet.user == request.user %}
             <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
             <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
             {% endif %}
