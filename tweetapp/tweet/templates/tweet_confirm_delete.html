@@ -6,6 +6,13 @@
 
 {% block content %}
 
-<h1 class="mt-4 text-center">This is my first tweet-app</h1>
+<h1 class="mt-4 text-center">Are you sure that you want to delete the tweet that you have created..??</h1>
+<form method="post">
+{% csrf_token %}
+{{form}}
+<button class="btn btn-danger">Delete</button>
+<a href="{% url 'tweet_list' %}" class="btn btn-success">Cancel</a>
+</form>
+
     
 {% endblock %}
